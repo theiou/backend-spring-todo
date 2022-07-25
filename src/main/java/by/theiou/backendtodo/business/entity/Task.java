@@ -1,45 +1,43 @@
 package by.theiou.backendtodo.business.entity;
 
+import by.theiou.backendtodo.auth.entity.User;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@EqualsAndHashCode
+@NoArgsConstructor
 @Getter
 @Setter
 public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id", nullable = false)
     private Long id;
-    @Basic
-    @Column(name = "title", nullable = false, length = -1)
+
+    @Column(name = "title")
     private String title;
-    @Basic
-    @Column(name = "completed", nullable = true)
+
+    @Column(name = "completed")
     private Short completed;
-    @Basic
-    @Column(name = "task_date", nullable = true)
+
+    @Column(name = "task_date")
     private Timestamp taskDate;
-    @Basic
-    @Column(name = "priority_id", nullable = true)
-    private Long priorityId;
-    @Basic
-    @Column(name = "category_id", nullable = true)
-    private Long categoryId;
-    @Basic
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+
     @ManyToOne
     @JoinColumn(name = "priority_id", referencedColumnName = "id")
-    private Priority priorityByPriorityId;
+    private Priority priority;
+
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category categoryByCategoryId;
+    private Category category;
+
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    private UserData userDataByUserId;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
 
 }
