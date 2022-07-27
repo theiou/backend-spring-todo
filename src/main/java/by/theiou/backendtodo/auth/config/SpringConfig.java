@@ -15,7 +15,7 @@ public class SpringConfig {
         http.formLogin().disable();
         http.httpBasic().disable();
         http.requiresChannel().anyRequest().requiresSecure();
-
+        http.csrf().disable();
         return http.build();
     }
 

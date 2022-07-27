@@ -28,7 +28,6 @@ public class User {
     private String password;
 
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    @Column
     public Activity activity;
 
     @ManyToMany(fetch = FetchType.LAZY)
