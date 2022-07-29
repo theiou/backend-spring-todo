@@ -3,9 +3,7 @@ package by.theiou.backendtodo.business.service;
 import by.theiou.backendtodo.business.entity.Category;
 import by.theiou.backendtodo.business.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -22,8 +20,8 @@ public class CategoryService {
         return categoryRepository.findByUserEmailOrderByTitleAsc(email);
     }
 
-    public List<Category> findByTitle(String title, String email){
-        return categoryRepository.findByTitle(title, email);
+    public List<Category> find(String title, String email){
+        return categoryRepository.find(title, email);
     }
 
     public Category findById(Long id){

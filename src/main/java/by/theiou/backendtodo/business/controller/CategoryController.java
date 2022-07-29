@@ -29,7 +29,7 @@ public class CategoryController {
     }
     @PostMapping("/search")
     public ResponseEntity<List<Category>> search(@RequestBody CategorySearchValues categorySearchValues){
-        List<Category> categories = categoryService.findByTitle(categorySearchValues.getTitle(), categorySearchValues.getEmail());
+        List<Category> categories = categoryService.find(categorySearchValues.getTitle(), categorySearchValues.getEmail());
         return ResponseEntity.ok(categories);
     }
 
