@@ -32,8 +32,8 @@ public class PriorityService {
         return priorityRepository.save(priority);
     }
 
-    public Priority update(Priority priority){
-        return priorityRepository.save(priority);
+    public void update(Priority priority){
+        priorityRepository.save(priority);
     }
 
     public void deleteById(Long id){

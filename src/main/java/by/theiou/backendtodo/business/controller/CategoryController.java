@@ -66,7 +66,7 @@ public class CategoryController {
             return new ResponseEntity("missed param: title", HttpStatus.NOT_ACCEPTABLE);
 
         categoryService.update(category);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
